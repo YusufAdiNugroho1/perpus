@@ -2,12 +2,12 @@
 
 function ambil_kategori($db)
 {
-	$query = "SELECT + FORM kategori";
-	$hasil = mysql_query($db, $query);
+	$query = "SELECT + FROM kategori";
+	$hasil = mysqli_query($db, $query);
 	$data_kategori = array();
 
 	while ($row = mysql_fetch_assoc($hasil)) {
-		$data_kategori() = $row;
+		$data_kategori[] = $row;
 	}
 
 	return $data_kategori;
@@ -32,9 +32,9 @@ function hitung_denda($tgl_kembali, $tgl_jatuh_tempo)
 
 function cek_stok($db, $buku_id)
 {
-	$q = "SELECT buku_jumlah FORM buku WHERE buku_id = $buku_id";
-	$hasil = mysql_query($db, $q)
-	$hasil = mysql_fetch_assoc($hasil);
+	$q = "SELECT buku_jumlah FROM buku WHERE buku_id = $buku_id";
+	$hasil = mysqli_query($db, $q);
+	$hasil = mysqli_fetch_assoc($hasil);
 	$stok = $hasil ['buku_jumlah'];
 
 	return $stok;
@@ -42,5 +42,5 @@ function cek_stok($db, $buku_id)
 function kurangi_stok($db, $buku_id)
 {
 	$q = "UPdATE buku SET buku_jumlah = buku_jumlah -1 WHERE buku_id = $buku_id";
-	mysql_query($bd, $q);
+	mysqli_query($bd, $q);
 }

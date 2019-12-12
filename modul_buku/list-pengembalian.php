@@ -10,7 +10,7 @@ include 'proses-list-pengembalian.php';
 </head>
 <body>
     <div class="container clearfix">
-        <h1>SI Perpustakaan</h1>
+        <h1>My Perpustakaan</h1>
 
         <?php include '../sidebar.php' ?>
         <div class="content">
@@ -35,7 +35,7 @@ include 'proses-list-pengembalian.php';
                     <td><?php echo $kembali['tgl_pinjam'] ?></td>
                     <td><?php echo $kembali['tgl_jatuh_tempo'] ?></td>
                     <td><?php echo $kembali['tgl_kembali'] ?></td>
-                    <td>
+                    <td align="center">
                     <a href="delete-pengembalian.php?id_kembali=<?php echo $kembali['kembali_id'] ?>" onclick="return confirm('anda yakin akan menghapus data?')" class="btn btn-hapus">Hapus</a>
                     </td>
                 </tr>

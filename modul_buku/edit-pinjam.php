@@ -3,7 +3,7 @@
 include '../modul_buku/proses-list-buku.php';
 
 // ... ambil data dari database
-include '../modul_anggota/proses-list-anggota.php';
+include '../modul_buku/proses-list-anggota.php';
 
 if (!isset($_SESSION['user'])) {
     header('Location: ../login.php');

@@ -13,7 +13,7 @@ $kategori = $_POST['kategori'];
 $deskripsi = $_POST['deskripsi'];
 $jumlah = $_POST['jumlah'];
 
-$q = mysqli_query($db, "SELECT buku_cover FORM 	buku WHERE buku_id = $id_buku");
+$q = mysqli_query($db, "SELECT buku_cover FROM 	buku WHERE buku_id = $id_buku");
 $hasil = mysqli_fetch_assoc($q);
 $cover_lama = $hasil['buku_cover'];
 
@@ -28,7 +28,7 @@ if (!empty($_FILES['cover'] ['tmp_name'])) {
 }
 
 $query 	="UPDATE buku 
-	SET buku_judul = '$judul',
+  SET buku_judul = '$judul',
 	kategori_id = $kategori,
 	buku_deskripsi = '$deskripsi',
 	buku_jumlah = $jumlah,
@@ -36,7 +36,6 @@ $query 	="UPDATE buku
   WHERE buku_id = $id_buku";
 
 $hasil = mysqli_query($db, $query);
-;exit();
 if ($hasil == ture) {
 
 	if (!empty($_FILES['cover'] ['tmp_name'])) {

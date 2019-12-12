@@ -20,4 +20,4 @@ if ($hasil == true) {
     header('Location: list-anggota.php');
 } else {
     header('Location: tambah-anggota.php');
-}
+}	

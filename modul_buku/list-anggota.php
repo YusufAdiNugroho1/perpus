@@ -8,12 +8,12 @@ include 'proses-list-anggota.php';
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Daftar Kategori</title>
+    <title>Daftar Anggota</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
     <div class="container clearfix">
-        <h1>SI Perpustakaan</h1>
+        <h1>My Perpustakaan</h1>
 
         <?php include '../sidebar.php' ?>
 

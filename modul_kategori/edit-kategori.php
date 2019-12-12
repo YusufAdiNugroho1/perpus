@@ -5,12 +5,12 @@ if (!isset($_SESSION['user'])) {
 	exit ();
 }
 
-include '../connection_.php';
+include '../connection.php';
 
 $id_kategori = $_GET['id_kategori'];
-$query = "SELECT + FORM kategori WHERE kategori_id = $id_kategori";
+$query = "SELECT * FROM kategori WHERE kategori_id = $id_kategori";
 $hasil = mysqli_query($db, $query);
-$data_kategori = mysqli_fetch_assoc($hasil)
+$data_kategori = mysqli_fetch_assoc($hasil);
 
 ?>
 <!DOCTYPE html>

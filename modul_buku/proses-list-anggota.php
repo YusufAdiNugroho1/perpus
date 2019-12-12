@@ -1,7 +1,6 @@
 <?php
-if (session_status()!=PHP_SESSION_ACTIVE) {
-	session_start();
-}
+if(!isset($_SESSION))
+	 session_start();
 
 // ... jika belum login, alihkan ke halaman login
 if (! isset($_SESSION['user'])) {
@@ -24,5 +23,4 @@ while ($row = mysqli_fetch_assoc($hasil)) {
     $data_anggota[] = $row;
 }
 
-
-// ... lanjut di tampilan
+?>

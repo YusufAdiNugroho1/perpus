@@ -7,7 +7,7 @@
 	}	
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<meta charset="utf-8">
 	<title>Daftar Petugas</title>
@@ -20,9 +20,9 @@
 			<ul>
 				<li><a href="modul_kategori/list-kategori.php">Data Kategori</a></li>
 				<li><a href="modul_buku/list-buku.php">Data Buku</a></li>
-				<li><a href="modul_anggota/list-anggota.php">Data Anggota</a></li>
-				<li><a href="modul_peminjaman/pinjam-data.php">Peminjaman</a></li>
-				<li><a href="modul_pengembalian/list-pengembalian">Pengembalian</a></li>
+				<li><a href="modul_buku/list-anggota.php">Data Anggota</a></li>
+				<li><a href="modul_buku/pinjam-data.php">Peminjaman</a></li>
+				<li><a href="modul_buku/list-pengembalian">Pengembalian</a></li>
 				<li><a href="logout.php">Logout</a></li>
 			</ul>
 		</div>
