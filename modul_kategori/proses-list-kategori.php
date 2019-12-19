@@ -8,9 +8,9 @@ if (! isset($_SESSION['user'])) {
 
 include '../connection.php';
 
-$query = "SELECT + FORM kategori";
+$query = "SELECT * FROM kategori";
 
-$hasil = mysql_query($db, $query);
+$hasil = mysqli_query($db, $query);
 
 $data_kategori = array();
 

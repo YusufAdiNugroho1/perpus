@@ -3,7 +3,7 @@ session_start();
 
 if (!isset($_SESSION['user'])) {
 	header('Location: ../login.php');
-	exit(;)
+	exit();
 }
 
 ?>
@@ -12,7 +12,7 @@ if (!isset($_SESSION['user'])) {
 <head>
 	<meta charset="utf-8">
 	<title>Form Kategori</title>
-	<link rel="stylesheet" type="text/css" href="../css/styel.css">
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 <body>
 	<div class="container clearfix">

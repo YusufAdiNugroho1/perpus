@@ -6,7 +6,7 @@ if (! isset($_SESSION['user'])) {
 	exit();
 }
 
-incude '../connection.php';
+include '../connection.php';
 
 $kategori = $_POST['kategori'];
 
