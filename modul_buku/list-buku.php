@@ -61,7 +61,7 @@ $no =$mulai+1;
                     <td><?php echo $buku['kategori_nama'] ?></td>
                     <td><?php echo $buku['buku_deskripsi'] ?></td>
                     <td><?php echo $buku['buku_jumlah'] ?></td>
-                    <td><img width="130px" class="buku-cover" src="cover/<?php echo $buku['buku_cover'] ?>"></td>
+                    <td width="20%"><img width="70%" class="buku-cover" src="cover/<?php echo $buku['buku_cover'] ?>"></td>
                     <td>
                         <a href="edit-buku.php?id_buku=<?php echo $buku['buku_id']; ?>" class="btn btn-edit">Edit</a>
                         <a href="delete-buku.php?id_buku=<?php echo $buku['buku_id']; ?>" class="btn btn-hapus" onclick="return confirm('anda yakin akan menghapus data?');">Hapus</a>

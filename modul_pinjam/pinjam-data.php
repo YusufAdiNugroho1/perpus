@@ -38,13 +38,6 @@ $no =$mulai+1;
 
         <div class="content">
             <h1>Daftar Peminjaman</h1>
-            <?php  
-            // Check message ada atau tidak
-            if(!empty($_SESSION['messages'])) {
-                echo $_SESSION['messages']; //menampilkan pesan 
-                unset($_SESSION['messages']); //menghapus pesan setelah refresh
-            }
-            ?>
             <div class="btn-tambah-div">
                 <a href="pinjam-form.php"><button class="btn btn-tambah">Transaksi Baru</button></a>
             </div>

@@ -4,7 +4,7 @@
         <li><a href="../modul_buku/list-buku.php">Data Buku</a></li>
         <li><a href="../modul_anggota/list-anggota.php">Data Anggota</a></li>
         <li><a href="../modul_rak_buku/list-rak-buku.php">Data Rak</a></li>
-        <li><a href="../modul_peminjaman/pinjam-data.php">Peminjaman</a></li>
+        <li><a href="../modul_pinjam/pinjam-data.php">Peminjaman</a></li>
         <li><a href="../modul_pengembalian/list-pengembalian.php">Pengembalian</a></li>
         <li><a href="../modul_rak/list-rak.php">Letak Buku</a></li>
         <li><a href="../logout.php" onclick="return confirm('anda yakin akan keluar?')">Logout</a></li>

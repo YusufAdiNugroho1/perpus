@@ -10,7 +10,7 @@ if (!isset($_SESSION['user'])) {
 include '../modul_buku/proses-list-buku.php';
 
 // ... ambil data dari database
-include '../modul_buku/proses-list-anggota.php';
+include '../modul_anggota/proses-list-anggota.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">

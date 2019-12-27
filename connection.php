@@ -3,7 +3,7 @@
 $host = "localhost";
 $user = "root";
 $pass = "";
-$database = "db_perpus";
+$database = "siperpus";
 $db = mysqli_connect($host, $user, $pass, $database);
 
 ?>
