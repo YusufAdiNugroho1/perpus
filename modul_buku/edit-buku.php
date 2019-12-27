@@ -19,11 +19,7 @@ $data_buku = mysqli_fetch_assoc($hasil);
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-<<<<<<< HEAD
-    <title>Form Buku</title>
-=======
     <title>Edit Buku</title>
->>>>>>> 08fdac12d2cbc8e6289095777019daea96fc8873
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
