@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <html>
 <head>
 <title>Search Engine</title>
@@ -67,3 +68,9 @@ if (isset($_POST['Search'])){
 </center>
 </body>
 </html>
+=======
+<?php 
+header('Location: login.php');
+exit();
+?>
+>>>>>>> 08fdac12d2cbc8e6289095777019daea96fc8873

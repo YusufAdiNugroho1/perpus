@@ -25,9 +25,15 @@ $no =$mulai+1;
 <body>
 	<div class="container clearfix">
 		<h1>My Perpustakaan</h1>
+<<<<<<< HEAD
 
 		<?php include '../sidebar.php' ?>
 
+=======
+
+		<?php include '../sidebar.php' ?>
+
+>>>>>>> 08fdac12d2cbc8e6289095777019daea96fc8873
 		<div class="content">
 			<h1>Daftar Kategori</h1>
 			<div class="btn-tambah-div">
@@ -38,6 +44,7 @@ $no =$mulai+1;
 			<?php else : ?>
 			<table class="data">
 				<tr>
+<<<<<<< HEAD
 					<th>No</th>
 					<th>Kategori</th>
 					<th width="20%">Pilihan</th>
@@ -47,12 +54,20 @@ $no =$mulai+1;
 				?>
 				<tr>
 					<td><?php echo $no++ ?></td>
+=======
+					<th>Kategori</th>
+					<th width="20%">Pilihan</th>
+				</tr>
+				<?php foreach ($data_kategori as $kategori) : ?>
+				<tr>
+>>>>>>> 08fdac12d2cbc8e6289095777019daea96fc8873
 					<td><?php echo $kategori ['kategori_nama'] ?></td>
 					<td>
 						<a href="edit-kategori.php?id_kategori=<?php echo $kategori['kategori_id']; ?>" class="btn btn-edit">Edit</a>
 						<a href="delete-kategori.php?id_kategori=<?php echo $kategori['kategori_id']; ?>" class="btn btn-hapus" onclick="return confrim('Hapus data ini?');">Hapus</a>
 						</td>
 				</tr>
+<<<<<<< HEAD
 				<?php } ?>
 			</table>
 			<div>
@@ -63,6 +78,10 @@ $no =$mulai+1;
               <?php } ?>
  
 			</div>
+=======
+				<?php endforeach ?>
+			</table>
+>>>>>>> 08fdac12d2cbc8e6289095777019daea96fc8873
 		  <?php endif ?>
 		</div>
 	</div>

@@ -23,7 +23,7 @@ $data_anggota = mysqli_fetch_assoc($hasil);
 </head>
 <body>
     <div class="container clearfix">
-        <h1>SI Perpustakaan</h1>
+        <h1>My Perpustakaan</h1>
 
         <?php include '../sidebar.php' ?>
 

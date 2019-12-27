@@ -36,6 +36,10 @@ $query 	="UPDATE buku
   WHERE buku_id = $id_buku";
 
 $hasil = mysqli_query($db, $query);
+<<<<<<< HEAD:modul_buku/proses-edit-buku.php
+=======
+if ($hasil == ture) {
+>>>>>>> 08fdac12d2cbc8e6289095777019daea96fc8873:modul_buku/proses-edit.php
 
 if ($hasil == true) {
 

@@ -19,7 +19,11 @@ $nama_file   = $_FILES['cover']['name'];
 $destination = "cover/" . $nama_file;
 
 $query = "INSERT INTO buku (buku_judul, kategori_id, buku_deskripsi, buku_jumlah, buku_cover) 
+<<<<<<< HEAD
     VALUES ('$judul', $kategori, '$deskripsi', $jumlah, '$nama_file')";
+=======
+    VALUES ('$judul', '$kategori', '$deskripsi', $jumlah, '$nama_file')";
+>>>>>>> 08fdac12d2cbc8e6289095777019daea96fc8873
 $hasil = mysqli_query($db, $query);
 if ($hasil == true) {
 
