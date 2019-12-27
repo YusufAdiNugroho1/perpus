@@ -1,11 +1,16 @@
 <?php
 
-// ... ambil data dari database
+include '../connection.php';
+
 include 'proses-list-anggota.php';
 
 $halaman = 5;
 $page = isset($_GET["halaman"]) ? (int)$_GET["halaman"] : 1;
 $mulai = ($page>1) ? ($page * $halaman) - $halaman : 0;
+$result = mysqli_query($db,"SELECT * FROM anggota");
+$total = mysqli_num_rows($result);
+$pages = ceil($total/$halaman);            
+$query = mysqli_query($db,"SELECT * FROM anggota LIMIT $mulai, $halaman")or die(mysqli_error);
 
 $no =$mulai+1;
 
@@ -40,7 +45,9 @@ $no =$mulai+1;
                     <th>No Telepon</th>
                     <th width="20%">Pilihan</th>
                 </tr>
-                <?php foreach ($data_anggota as $anggota) : ?>
+                <?php 
+                    while ($anggota = mysqli_fetch_assoc($query)) {
+                ?>
                 <tr>
                     <td><?php echo $no++; ?></td> 
                     <td><?php echo $anggota['anggota_nama'] ?></td>
@@ -52,8 +59,16 @@ $no =$mulai+1;
                         <a href="delete-anggota.php?id_anggota=<?php echo $anggota['anggota_id']; ?>" class="btn btn-hapus" onclick="return confirm('anda yakin akan menghapus data?');">Hapus</a>
                     </td>
                 </tr>
-                <?php  endforeach ?>
+                <?php  } ?>
             </table>
+            <div class="">
+              <font>Page</font>
+              <?php for ($i=1; $i<=$pages ; $i++){ ?>
+              &nbsp;<a href="?halaman=<?php echo $i; ?>" style="color:black;"><?php echo $i; ?></a>
+ 
+              <?php } ?>
+ 
+            </div>
             <?php endif ?>
         </div>
 

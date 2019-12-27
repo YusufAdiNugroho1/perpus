@@ -2,11 +2,12 @@
 if(!isset($_SESSION))
 	 session_start();  
 
-$host = "localhost";
-$user = "root";
-$pass = "";
-$database = "siperpus";
-$db = mysqli_connect($host, $user, $pass, $database);
+if (! isset($_SESSION['user'])) {
+    header('Location: ../login.php');
+    exit();
+}
+
+include '../connection.php';
 
 $query = "SELECT buku.*, kategori.kategori_nama
 	FROM buku 

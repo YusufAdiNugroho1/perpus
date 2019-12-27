@@ -1,10 +1,24 @@
 <?php
-// ... ambil data dari database
+
+include '../connection.php';
+
 include 'proses-list-pinjam-data.php';
 
-$halaman = 5;
+$halaman = 10;
 $page = isset($_GET["halaman"]) ? (int)$_GET["halaman"] : 1;
 $mulai = ($page>1) ? ($page * $halaman) - $halaman : 0;
+$result = mysqli_query($db,"SELECT pinjam.*,pinjam.pinjam_id as id_pinjam, buku.buku_id ,buku.buku_judul, anggota.anggota_nama,
+    (SELECT tgl_kembali FROM kembali JOIN pinjam ON kembali.pinjam_id=pinjam.pinjam_id WHERE kembali.pinjam_id=id_pinjam) as tgl_kembali
+    FROM pinjam
+    JOIN buku ON buku.buku_id = pinjam.buku_id
+    JOIN anggota ON anggota.anggota_id = pinjam.anggota_id");
+$total = mysqli_num_rows($result);
+$pages = ceil($total/$halaman);            
+$query = mysqli_query($db,"SELECT pinjam.*,pinjam.pinjam_id as id_pinjam, buku.buku_id ,buku.buku_judul, anggota.anggota_nama,
+    (SELECT tgl_kembali FROM kembali JOIN pinjam ON kembali.pinjam_id=pinjam.pinjam_id WHERE kembali.pinjam_id=id_pinjam) as tgl_kembali
+    FROM pinjam
+    JOIN buku ON buku.buku_id = pinjam.buku_id
+    JOIN anggota ON anggota.anggota_id = pinjam.anggota_id LIMIT $mulai, $halaman")or die(mysqli_error);
 
 $no =$mulai+1;
 
@@ -48,7 +62,9 @@ $no =$mulai+1;
                     <th>Status</th>
                     <th width="30%">Pilihan</th>
                 </tr>
-                <?php foreach ($data_pinjam as $pinjam) : ?>
+                <?php
+                     while ($pinjam = mysqli_fetch_assoc($query)) {
+                ?>
                 <tr align="center">
                     <td><?php echo  $no++ ?></td>
                     <td><?php echo $pinjam['buku_judul'] ?></td>
@@ -84,8 +100,16 @@ $no =$mulai+1;
                         <a href="proses-delete-pinjam.php?id_pinjam=<?php echo $pinjam['pinjam_id']; ?>&&status=<?php echo $status; ?>&&buku_id=<?php echo $pinjam['buku_id']; ?>"  onclick="return confirm('anda yakin akan menghapus data?')" class="btn btn-hapus">Hapus</a>
                     </td>
                 </tr>
-                <?php endforeach ?>
+                <?php } ?>
             </table>
+            <div>
+              <font>Page</font>
+              <?php for ($i=1; $i<=$pages ; $i++){ ?>
+              &nbsp;<a href="?halaman=<?php echo $i; ?>" style="color:black;"><?php echo $i; ?></a>
+ 
+              <?php } ?>
+ 
+            </div>
             <?php endif ?>
         </div>
 

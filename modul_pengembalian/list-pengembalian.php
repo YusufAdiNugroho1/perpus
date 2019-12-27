@@ -1,10 +1,24 @@
 <?php
 
+include '../connection.php';
+
 include 'proses-list-pengembalian.php';
 
-$halaman = 5;
+$halaman = 10;
 $page = isset($_GET["halaman"]) ? (int)$_GET["halaman"] : 1;
 $mulai = ($page>1) ? ($page * $halaman) - $halaman : 0;
+$result = mysqli_query($db,"SELECT buku.buku_judul, pinjam.tgl_pinjam, pinjam.tgl_jatuh_tempo,kembali.kembali_id, kembali.tgl_kembali, anggota.anggota_nama
+    FROM pinjam
+    JOIN buku ON buku.buku_id = pinjam.buku_id
+    JOIN anggota ON anggota.anggota_id = pinjam.anggota_id
+    JOIN kembali ON pinjam.pinjam_id = kembali.pinjam_id");
+$total = mysqli_num_rows($result);
+$pages = ceil($total/$halaman);            
+$query = mysqli_query($db,"SELECT buku.buku_judul, pinjam.tgl_pinjam, pinjam.tgl_jatuh_tempo,kembali.kembali_id, kembali.tgl_kembali, anggota.anggota_nama
+    FROM pinjam
+    JOIN buku ON buku.buku_id = pinjam.buku_id
+    JOIN anggota ON anggota.anggota_id = pinjam.anggota_id
+    JOIN kembali ON pinjam.pinjam_id = kembali.pinjam_id LIMIT $mulai, $halaman")or die(mysqli_error);
 
 $no =$mulai+1;
 
@@ -37,7 +51,9 @@ $no =$mulai+1;
                     <th width="20%">Pilihan</th>
                 </tr>
 
-                <?php foreach ($data_kembali as $kembali) : ?>
+                <?php 
+                    while ($kembali = mysqli_fetch_assoc($query)) {
+                ?>
 
                 <tr>
                     <td><?php echo $no++ ?></td>
@@ -50,9 +66,16 @@ $no =$mulai+1;
                     <a href="delete-pengembalian.php?id_kembali=<?php echo $kembali['kembali_id'] ?>" onclick="return confirm('anda yakin akan menghapus data?')" class="btn btn-hapus">Hapus</a>
                     </td>
                 </tr>
-                <?php endforeach ?>
-
+                <?php } ?>
             </table>
+            <div>
+              <font>Page</font>
+              <?php for ($i=1; $i<=$pages ; $i++){ ?>
+              &nbsp;<a href="?halaman=<?php echo $i; ?>" style="color:black;"><?php echo $i; ?></a>
+ 
+              <?php } ?>
+ 
+            </div>
             <?php endif ?>
         </div>
 

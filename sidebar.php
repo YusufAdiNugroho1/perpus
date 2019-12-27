@@ -7,7 +7,6 @@
 		<li><a href="../modul_pinjam/pinjam-data.php">Peminjaman</a></li>
 		<li><a href="../modul_pengembalian/list-pengembalian.php">Pengembalian</a></li>
 		<li><a href="../modul_rak/list-rak.php">Letak Buku</a></li>
-		<li><a href="../index.php">Halaman Depan</a></li>
 		<li><a href="../logout.php" onclick="return confrim('anda yakin akan keluar?')">Logout</a></li>
 	</ul>
 </div>

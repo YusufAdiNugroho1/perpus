@@ -1,11 +1,22 @@
 <?php
 
-// ... ambil data dari database
+include '../connection.php';
+
 include 'proses-list-buku.php';
 
 $halaman = 5;
 $page = isset($_GET["halaman"]) ? (int)$_GET["halaman"] : 1;
 $mulai = ($page>1) ? ($page * $halaman) - $halaman : 0;
+$result = mysqli_query($db,"SELECT buku.*, kategori.kategori_nama
+    FROM buku 
+    JOIN kategori 
+    ON buku.kategori_id = kategori.kategori_id");
+$total = mysqli_num_rows($result);
+$pages = ceil($total/$halaman);            
+$query = mysqli_query($db,"SELECT buku.*, kategori.kategori_nama
+    FROM buku 
+    JOIN kategori 
+    ON buku.kategori_id = kategori.kategori_id LIMIT $mulai, $halaman")or die(mysqli_error);
 
 $no =$mulai+1;
 
@@ -14,7 +25,7 @@ $no =$mulai+1;
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Daftar Kategori</title>
+    <title>Daftar Buku</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
@@ -41,7 +52,9 @@ $no =$mulai+1;
                     <th>Cover</th>
                     <th width="20%">Pilihan</th>
                 </tr>
-                <?php foreach ($data_buku as $buku) : ?>
+                <?php 
+                    while ($buku = mysqli_fetch_assoc($query)) {
+                ?>
                 <tr>
                     <td><?php echo $no++ ?></td>
                     <td><?php echo $buku['buku_judul'] ?></td>
@@ -54,8 +67,16 @@ $no =$mulai+1;
                         <a href="delete-buku.php?id_buku=<?php echo $buku['buku_id']; ?>" class="btn btn-hapus" onclick="return confirm('anda yakin akan menghapus data?');">Hapus</a>
                     </td>
                 </tr>
-                <?php endforeach ?>
+                <?php } ?>
             </table>
+            <div class="">
+              <font>Page</font>
+              <?php for ($i=1; $i<=$pages ; $i++){ ?>
+              &nbsp;<a href="?halaman=<?php echo $i; ?>" style="color:black;"><?php echo $i; ?></a>
+ 
+              <?php } ?>
+ 
+            </div>
             <?php endif ?>
         </div>
 

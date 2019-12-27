@@ -88,40 +88,26 @@ table.data tr:not(:frist-child):nth-of-type(odd) {
 	background-color: #f9f9f9;
 }
 .pagination {
-				list-style-type: none;
-				padding: 10px 0;
-				display: inline-flex;
-				justify-content: space-between;
-				box-sizing: border-box;
-			}
-			.pagination li {
-				box-sizing: border-box;
-				padding-right: 10px;
-			}
-			.pagination li a {
-				box-sizing: border-box;
-				background-color: #e2e6e6;
-				padding: 8px;
-				text-decoration: none;
-				font-size: 12px;
-				font-weight: bold;
-				color: #616872;
-				border-radius: 4px;
-			}
-			.pagination li a:hover {
-				background-color: #d4dada;
-			}
-			.pagination .next a, .pagination .prev a {
-				text-transform: uppercase;
-				font-size: 12px;
-			}
-			.pagination .currentpage a {
-				background-color: #518acb;
-				color: #fff;
-			}
-			.pagination .currentpage a:hover {
-				background-color: #518acb;
-			}
+  display: inline-block;
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.pagination a.active {
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 5px;
+}
+
+.pagination a:hover:not(.active) {
+  background-color: #ddd;
+  border-radius: 5px;
+}
 .form {
 	background: #42775A;
 	border-radius: 5px;
