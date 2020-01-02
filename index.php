@@ -10,7 +10,7 @@
 <center>
 <h1 style="margin-top: 170px;">My Perpus</h1>
     <form action="" method="post">
-        <input  type="text" id="searchquery" class="search" size="60" name="keyword" placeholder="Golek eneng kene" />
+        <input  type="text" id="searchquery" class="search" size="60" name="keyword" placeholder="Search in here!!!!" />
         <input type="submit" id="searchbutton" value="Search" name="Search" class="submit" />
 </form>
 <?php
