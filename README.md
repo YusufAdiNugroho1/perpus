@@ -26,9 +26,11 @@ Tahap-tahap untuk memasang aplikasi:
 3. Setelah itu coba di weh browser localhost/perpusku
 	maka tampilannya akan seperti dibawah ini:
 
+	![Halaman Login](/assets/image/capture_1.PNG "Halaman Login")
 
 	dan setelah itu klik tombol login di pojok kanan atas dengan username:admin dan password admin maka tampilanya:
 
+	![Halaman Admin](/assets/image/capture_2.PNG "Halaman Admin")
 
 Trima kasih sudah mendownload source code dr saya, saya membuat aplikasi diatas dari tanggal 28/11/2019-27/12/2019,saya mengerjakanya di Ajaro dalam rangka Magang/pkl ,dan muncul berbagai ksuliatan yang saya hadapi saat pembuatan aplikasi tersebut,Seperti Kurang paham-nya bahasa pemrograman php dan bahasa query.
 
